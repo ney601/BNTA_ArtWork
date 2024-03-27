@@ -1,5 +1,9 @@
 const Art = () => {
-    return (  );
+    return ( 
+        <>
+            <h2>Art</h2>
+        </>
+    );
 }
  
 export default Art;
