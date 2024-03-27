@@ -4,8 +4,8 @@ const SearchDepartmentForm = ({departments}) => {
 
     const [departmentId, setDepartmentId] = useState(null);
 
-    const departmentOptions = departments.map((department) => {
-        return <option key={department.id} value={department.id}>{department.displayName}</option>
+    const departmentOptions = departments.map((department, index) => {
+        return <option key={index} value={department.id}>{department.displayName}</option>
     })
     
     const handleSearch = (e) => {
