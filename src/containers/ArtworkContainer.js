@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import SearchDepartmentForm from "../components/SerachDepartmentForm";
+import ArtList from "../components/ArtList";
 
 const ArtworkContainer = () => {
 
@@ -38,15 +39,11 @@ const ArtworkContainer = () => {
         fetchDepartments();
     }, []);
 
-    
-
-
     return ( 
         <>
-          <h2>Container</h2>
+          <h2>Art Work Gallery</h2>
           <SearchDepartmentForm departments={departments} postSearch={getArtworkByDepartment}/>
-          {/* {JSON.stringify(artworkIds)}
-          {JSON.stringify(artworks)} */}
+          <ArtList artworks={artworks}/> 
         </>
     );
 }
