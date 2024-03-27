@@ -1,18 +1,21 @@
 import { useState } from "react";
 
-const SearchDepartmentForm = ({departments}) => {
+const SearchDepartmentForm = ({departments, postSearch}) => {
 
     const [departmentId, setDepartmentId] = useState(null);
 
     const departmentOptions = departments.map((department, index) => {
-        return <option key={index} value={department.id}>{department.displayName}</option>
+        return <option key={index} value={department.departmentId}>{department.displayName}</option>
     })
-    
+
+
     const handleSearch = (e) => {
         e.preventDefault();
         console.log("Submit Works");
-        //postSearch(departmentId)
-        //navigation
+        const selectedDepartment = departments.find((department) => department.departmentId === departmentId);
+        // console.log(selectedDepartment.displayName);
+        postSearch(selectedDepartment.displayName);
+        // navigation
     }
     
     return ( 
@@ -23,7 +26,7 @@ const SearchDepartmentForm = ({departments}) => {
 
                 <select
                     defaultValue="select-department"
-                    onChange={(event) => setDepartmentId(event.target.value)}>
+                    onChange={(event) => setDepartmentId(parseInt(event.target.value))}>
                     <option disabled value="select-department"> Select a Department </option>
                     {departmentOptions}
                 </select>
