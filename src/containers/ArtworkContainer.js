@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import SearchDepartmentForm from "../components/SerachDepartmentForm";
 
 const ArtworkContainer = () => {
 
@@ -8,7 +9,7 @@ const ArtworkContainer = () => {
     const fetchDepartments = async () => {
         const response = await fetch("https://collectionapi.metmuseum.org/public/collection/v1/departments");
         const jsonData = await response.json();
-        setDepartments(jsonData);
+        setDepartments(jsonData.departments);
     }
 
     useEffect(() => {
@@ -19,7 +20,7 @@ const ArtworkContainer = () => {
     return ( 
         <>
           <h2>Container</h2>
-          {JSON.stringify(departments)}
+          <SearchDepartmentForm departments={departments}/>
         </>
     );
 }
