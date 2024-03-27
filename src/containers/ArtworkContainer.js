@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import SearchDepartmentForm from "../components/SerachDepartmentForm";
 import ArtList from "../components/ArtList";
+// import Navigation from "../components/Navigation";
 
 const ArtworkContainer = () => {
 
@@ -39,8 +40,22 @@ const ArtworkContainer = () => {
         fetchDepartments();
     }, []);
 
+    // const artworkRoutes = createBrowserRouter([
+    //     {
+    //     path: "/",
+    //     element: <Navigation />,
+    //     children: [
+    //         {
+    //             path: "/form",
+    //             element: <SearchDepartmentForm departments={departments} postSearch={getArtworkByDepartment}/>
+    //         }
+    //     ],
+    // }
+    // ]);
+
     return ( 
         <>
+            {/* <Navigation /> */}
           <h2>Art Work Gallery</h2>
           <SearchDepartmentForm departments={departments} postSearch={getArtworkByDepartment}/>
           <ArtList artworks={artworks}/> 
